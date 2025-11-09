@@ -6,179 +6,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            font-family: 'Segoe UI', 'Noto Sans', Arial, sans-serif;
-            background: linear-gradient(135deg, #e8f0fe 0%, #fff6fb 100%);
             margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', 'Noto Sans', Arial, sans-serif;
+            background: linear-gradient(120deg,#e8f0fe 0%, #fff6fb 100%);
         }
-        .container {
-            margin: 50px auto 0 auto;
-            max-width: 820px;
-            background: rgba(255,255,255,1);
-            box-shadow: 0 4px 24px 0 rgba(115,137,217,0.12);
-            padding: 54px 8vw 48px 8vw;
-            border-radius: 26px;
+        .main-wrapper {
+            display: flex;
+            min-height: 100vh;
+            max-width: 950px;
+            margin: 0 auto;
+            box-shadow: 0 4px 24px rgba(60,90,180,0.10);
+            background: #fff;
+            border-radius: 28px;
+            overflow: hidden;
         }
-        .profile {
-            text-align: center;
-            margin-bottom: 24px;
+        .sidebar {
+            flex: 0 0 290px;
+            background: linear-gradient(135deg, #e5ecff 60%, #ffe6f3 100%);
+            padding: 50px 28px;
+            box-shadow: 1px 0 8px #e7e7ff10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .profile-pic {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 4px solid #4f7cd3;
-            box-shadow: 0 2px 10px #e9e6f7;
+            border: 2.5px solid #5a85e8;
+            margin-bottom: 22px;
+            box-shadow: 0 1px 10px #eee;
             object-fit: cover;
-            background: #f9eafd;
-            margin-bottom: 18px;
+        }
+        .name {
+            font-size: 2em;
+            color: #4167bc;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
         }
         .bio {
-            font-size: 1.40em;
-            color: #3d4d80;
-            margin-bottom: 14px;
-            background: rgba(217,233,251,0.43);
-            border-radius: 13px;
-            display: inline-block;
-            padding: 9px 18px;
-            line-height: 1.45;
-        }
-        .email-link {
-            color: #4f7cd3;
             font-size: 1.08em;
-            text-decoration: underline wavy #fa8eb8;
+            color: #2b3148;
+            background: #f7f9fe;
+            border-radius: 9px;
+            margin-bottom: 13px;
+            padding: 5px 12px;
+            line-height: 1.46;
+            text-align: center;
+        }
+        .email-block {
+            color: #4167bc;
             font-weight: 500;
+            margin-bottom: 22px;
+            background: #f7e8f3;
+            border-radius: 9px;
+            padding: 6px 8px;
+            text-align: center;
+        }
+        .social-links {
+            display: flex;
+            gap: 13px;
+            justify-content: center;
+            margin-top: 13px;
+        }
+        .social-link {
+            text-decoration: none;
+            color: #5a85e8;
+            background: #f3f6fd;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35em;
+            transition: background 0.18s;
+        }
+        .social-link:hover {
+            background: #e9e1fc;
+            color: #b0345b;
+        }
+        .content {
+            flex: 1;
+            padding: 60px 46px 60px 46px;
         }
         .tabs {
             display: flex;
-            justify-content: center;
-            gap: 36px;
-            border-bottom: 1.7px solid #e6eaf0;
-            margin-bottom: 30px;
-            margin-top: 30px;
+            gap: 40px;
+            border-bottom: 2px solid #f1f2f9;
+            margin-bottom: 25px;
         }
         .tab-link {
-            background: linear-gradient(90deg, #e3ecfd 40%, #fae3f8 100%);
+            background: none;
             border: none;
-            font-size: 1.12em;
-            color: #4f7cd3;
-            font-weight: bold;
+            font-size: 1.1em;
+            color: #4167bc;
+            font-weight: 600;
             cursor: pointer;
-            padding: 12px 28px;
-            margin-right: 1px;
-            border-radius: 19px 19px 0 0;
-            box-shadow: 0 1px 3px rgba(115,137,217,0.07);
-            transition: all 0.14s;
-        }
-        .tab-link:hover {
-            background: #e3eaf3;
-            color: #b0345b;
+            padding: 12px 1px;
+            margin-right: 8px;
+            border-radius: 2px;
+            transition: color 0.14s;
         }
         .tab-link.active {
             color: #b0345b;
-            background: linear-gradient(90deg, #fae3f8 10%, #e3ecfd 90%);
             border-bottom: 2.5px solid #fa8eb8;
+            font-weight: bold;
+            background: #fafaff;
         }
         .tab-content {
             display: none;
-            margin-top: 16px;
-            color: #474f6f;
+            margin-top: 20px;
         }
         .tab-content.active {
             display: block;
         }
         ul {
-            margin-top: 10px;
-            margin-bottom: 18px;
-            font-size: 1.07em;
-            color: #3d4d80;
-            padding-left: 18px;
+            margin: 12px 0 20px 15px;
         }
         li {
-            margin-bottom: 18px;
-            background: rgba(230,238,253,0.27);
-            border-radius: 8px;
-            padding: 7px 10px 7px 8px;
+            margin-bottom: 17px;
+            padding-bottom: 8px;
+            font-size: 1.08em;
+            line-height: 1.5;
+            color: #2b3148;
         }
-        @media (max-width: 650px) {
-            .container {
-                padding: 16px 1vw 25px 1vw;
+        .paper-title {
+            font-weight: bold;
+            color: #4167bc;
+        }
+        .conference {
+            color: #b0345b;
+        }
+        @media (max-width:900px) {
+            .main-wrapper {
+                flex-direction: column;
+                box-shadow: none;
+                border-radius: 0;
             }
-            .profile-pic {
-                width: 90px;
-                height: 90px;
+            .sidebar, .content {
+                border-radius: 0;
+                padding: 30px 8vw;
             }
-            .bio {
-                font-size: 0.95em;
-                padding: 7px 4vw;
+            .sidebar {
+                flex: none;
+                box-shadow: none;
+                border-bottom: 1.5px solid #eee;
             }
-            .tabs {
-                gap: 9px;
+            .content {
+                padding: 24px 6vw;
             }
-            .tab-link {
-                padding: 9px 11px;
-                font-size: 0.96em;
-            }
+            .tabs { gap: 14px; }
+        }
+        @media (max-width:500px) {
+            .sidebar, .content { padding: 16px 3vw; }
+            .profile-pic { width: 81px; height: 81px;}
+            .name { font-size: 1.3em; margin-bottom: 8px;}
+            .bio { font-size: 0.97em;}
         }
     </style>
     <script>
-        function showTab(tab) {
+        function showTab(tabName) {
             var tabs = document.querySelectorAll('.tab-content');
             var links = document.querySelectorAll('.tab-link');
             tabs.forEach(function(t) { t.classList.remove('active'); });
             links.forEach(function(l) { l.classList.remove('active'); });
-            document.getElementById(tab).classList.add('active');
-            document.getElementById(tab+"-link").classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+            document.getElementById(tabName+'-link').classList.add('active');
         }
         window.onload = function() {
-            showTab('main');
+            showTab('publications');
         };
     </script>
 </head>
 <body>
-    <div class="container">
-        <div class="profile">
+    <div class="main-wrapper">
+        <aside class="sidebar">
             <img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia Photo">
+            <div class="name">Princessa Cintaqia</div>
             <div class="bio">
-                Hi! I'm Princessa. I'm a PhD student at Boston University advised by
-                <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>.
+                Hi! I'm Princessa.<br>
+                I'm a PhD student at Boston University advised by
+                <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>.<br>
                 I'm interested in digital intimacy and technology-facilitated sexual abuse.
             </div>
-            <div>
-                <strong>Email:</strong>
-                <a class="email-link" href="mailto:cintaqia@bu.edu">cintaqia@bu.edu</a>
+            <div class="email-block">📧 cintaqia@bu.edu</div>
+            <div class="social-links">
+                <a class="social-link" href="mailto:cintaqia@bu.edu" title="Email"><span>✉️</span></a>
+                <a class="social-link" href="https://github.com/your-github-username" target="_blank" title="GitHub"><span>🐙</span></a>
+                <a class="social-link" href="https://linkedin.com/in/your-linkedin-url" target="_blank" title="LinkedIn"><span>💼</span></a>
             </div>
-        </div>
-        <div class="tabs">
-            <button id="main-link" class="tab-link active" onclick="showTab('main')">Home</button>
-            <button id="publications-link" class="tab-link" onclick="showTab('publications')">Publications</button>
-            <button id="talks-link" class="tab-link" onclick="showTab('talks')">Talks</button>
-        </div>
-        <div id="main" class="tab-content active">
-            <!-- Home: bio and email -->
-        </div>
-        <div id="publications" class="tab-content">
-            <ul>
-                <li>
-                  <b>Stop the Nonconsensual Use of Nude Images in Research.</b><br>
-                  Princessa Cintaqia, Arshia Arya, Elissa M Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin.<br>
-                  <i>NeurIPS (Oral), 2025.</i>
-                </li>
-                <li>
-                  <b>Global Patterns of Viral Content on WhatsApp.</b><br>
-                  Kiran Garimella, Princessa Cintaqia, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha.<br>
-                  <i>ICWSM, 2025.</i>
-                </li>
-            </ul>
-        </div>
-        <div id="talks" class="tab-content">
-            <ul>
-                <li>Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)</li>
-                <li>Invited Talk at UW-Madison's Security and Privacy Seminar (Nov 17, 2025)</li>
-                <li>Invited Talk at the Co-Constructing the Future of Digital Intimacy Workshop at CSCW (Oct 18, 2025)</li>
-                <li>Invited Talk at the UpperBound Conference, Canada (May 20, 2025)</li>
-            </ul>
-        </div>
+        </aside>
+        <main class="content">
+            <nav class="tabs">
+                <button id="publications-link" class="tab-link active" onclick="showTab('publications')">Publications</button>
+                <button id="talks-link" class="tab-link" onclick="showTab('talks')">Talks</button>
+            </nav>
+            <section id="publications" class="tab-content active">
+                <ul>
+                    <li>
+                        <span class="paper-title">Stop the Nonconsensual Use of Nude Images in Research</span><br>
+                        Princessa Cintaqia, Arshia Arya, Elissa M Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin.<br>
+                        <span class="conference">NeurIPS (Oral), 2025</span>
+                    </li>
+                    <li>
+                        <span class="paper-title">Global Patterns of Viral Content on WhatsApp</span><br>
+                        Kiran Garimella, Princessa Cintaqia, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha<br>
+                        <span class="conference">ICWSM, 2025</span>
+                    </li>
+                </ul>
+            </section>
+            <section id="talks" class="tab-content">
+                <ul>
+                    <li>Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)</li>
+                    <li>Invited Talk at UW-Madison's Security and Privacy Seminar (Nov 17, 2025)</li>
+                    <li>Invited Talk at the Co-Constructing the Future of Digital Intimacy Workshop at CSCW (Oct 18, 2025)</li>
+                    <li>Invited Talk at the UpperBound Conference, Canada (May 20, 2025)</li>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>
