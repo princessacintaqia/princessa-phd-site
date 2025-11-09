@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Princessa Cintaqia | PhD Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #fff;
+            margin: 50px auto 0 auto;
+            max-width: 650px;
+            box-shadow: 0 0 20px #c9ced6;
+            padding: 30px 40px;
+            border-radius: 16px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 28px;
+            border: 3px solid #4068c8;
+            object-fit: cover;
+        }
+        .bio {
+            font-size: 1.15em;
+            color: #444;
+        }
+        .tabs {
+            margin-top: 30px;
+            display: flex;
+            border-bottom: 2px solid #eee;
+        }
+        .tab-link {
+            background: none;
+            border: none;
+            font-size: 1.1em;
+            color: #4068c8;
+            font-weight: bold;
+            margin-right: 20px;
+            cursor: pointer;
+            padding-bottom: 9px;
+        }
+        .tab-link.active {
+            color: #b0345b;
+            border-bottom: 2px solid #b0345b;
+        }
+        .tab-content {
+            display: none;
+            margin-top: 24px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .info-box {
+            margin-bottom: 18px;
+        }
+        .email-link {
+            font-size: 1.09em;
+            color: #4068c8;
+            text-decoration: none;
+        }
+        ul {
+            margin-top: 6px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function showTab(tab) {
+            var tabs = document.querySelectorAll('.tab-content');
+            var links = document.querySelectorAll('.tab-link');
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            links.forEach(function(l) { l.classList.remove('active'); });
+            document.getElementById(tab).classList.add('active');
+            document.getElementById(tab+"-link").classList.add('active');
+        }
+        window.onload = function() {
+            showTab('main');
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button id="main-link" class="tab-link active" onclick="showTab('main')">Home</button>
+            <button id="publications-link" class="tab-link" onclick="showTab('publications')">Publications</button>
+            <button id="talks-link" class="tab-link" onclick="showTab('talks')">Talks</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="main" class="tab-content active">
+            <div class="profile">
+                <img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia Photo">
+                <div class="bio">
+                    Hi! I'm Princessa. I'm a PhD student at Boston University advised by <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>. I'm interested in digital intimacy and technology-facilitated sexual abuse.
+                </div>
+            </div>
+            <div class="info-box">
+                <strong>Email:</strong>
+                <a class="email-link" href="mailto:cintaqia@bu.edu">cintaqia@bu.edu</a>
+            </div>
+        </div>
+        <div id="publications" class="tab-content">
+            <ul>
+                <li>
+                    <b>Stop the Nonconsensual Use of Nude Images in Research.</b><br>
+                    Princessa Cintaqia, Arshia Arya, Elissa M. Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin.<br>
+                    <i>NeurIPS (Oral), 2025.</i>
+                </li>
+                <li>
+                    <b>Global Patterns of Viral Content on WhatsApp.</b><br>
+                    Kiran Garimella, Princessa Cintaqia, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha.<br>
+                    <i>ICWSM, 2025.</i>
+                </li>
+            </ul>
+        </div>
+        <div id="talks" class="tab-content">
+            <ul>
+                <li>Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)</li>
+                <li>Invited Talk at UW-Madison's Security and Privacy Seminar (Nov 17, 2025)</li>
+                <li>Invited Talk at the Co-Constructing the Future of Digital Intimacy Workshop at CSCW (Oct 18, 2025)</li>
+                <li>Invited Talk at the UpperBound Conference, Canada (May 20, 2025)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
