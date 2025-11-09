@@ -11,27 +11,24 @@
             background: linear-gradient(120deg,#e8f0fe 0%, #fff6fb 100%);
         }
         .main-wrapper {
+            width: 94vw;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             min-height: 100vh;
-            max-width: 950px;
-            margin: 0 auto;
-            box-shadow: 0 4px 24px rgba(60,90,180,0.10);
-            background: #fff;
-            border-radius: 28px;
-            overflow: hidden;
         }
         .sidebar {
-            flex: 0 0 290px;
-            background: linear-gradient(135deg, #e5ecff 60%, #ffe6f3 100%);
-            padding: 50px 28px;
-            box-shadow: 1px 0 8px #e7e7ff10;
+            flex: 0 0 300px;
+            padding: 70px 28px;
+            background: none;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
         }
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             border: 2.5px solid #5a85e8;
             margin-bottom: 22px;
@@ -39,20 +36,20 @@
             object-fit: cover;
         }
         .name {
-            font-size: 2em;
+            font-size: 2.1em;
             color: #4167bc;
             font-weight: 700;
             text-align: center;
             margin-bottom: 16px;
         }
         .bio {
-            font-size: 1.08em;
-            color: #2b3148;
-            background: #f7f9fe;
-            border-radius: 9px;
+            font-size: 1.25em;
+            color: #b0345b;
+            font-weight: 600;
             margin-bottom: 13px;
-            padding: 5px 12px;
-            line-height: 1.46;
+            display: inline-block;
+            padding: 8px 12px;
+            line-height: 1.47;
             text-align: center;
         }
         .email-block {
@@ -89,7 +86,7 @@
         }
         .content {
             flex: 1;
-            padding: 60px 46px 60px 46px;
+            padding: 85px 50px 60px 50px;
         }
         .tabs {
             display: flex;
@@ -126,44 +123,72 @@
             margin: 12px 0 20px 15px;
         }
         li {
-            margin-bottom: 17px;
+            margin-bottom: 16px;
             padding-bottom: 8px;
-            font-size: 1.08em;
-            line-height: 1.5;
+            font-size: 1.09em;
+            line-height: 1.55;
             color: #2b3148;
         }
         .paper-title {
             font-weight: bold;
             color: #4167bc;
         }
+        .myname {
+            text-decoration: underline #5a85e8 2px;
+            font-weight: bold;
+            color: #b0345b;
+        }
         .conference {
+            color: #b0345b;
+        }
+        .talk-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .talk-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 18px;
+        }
+        .talk-list li:before {
+            content: "🌸";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.13em;
+        }
+        .talk-link {
+            color: #4167bc;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.18s;
+        }
+        .talk-link:hover {
             color: #b0345b;
         }
         @media (max-width:900px) {
             .main-wrapper {
                 flex-direction: column;
-                box-shadow: none;
-                border-radius: 0;
             }
             .sidebar, .content {
-                border-radius: 0;
-                padding: 30px 8vw;
+                padding: 28px 8vw;
             }
             .sidebar {
                 flex: none;
-                box-shadow: none;
                 border-bottom: 1.5px solid #eee;
             }
             .content {
                 padding: 24px 6vw;
             }
             .tabs { gap: 14px; }
+            .profile-pic { width: 110px; height: 110px;}
         }
         @media (max-width:500px) {
-            .sidebar, .content { padding: 16px 3vw; }
-            .profile-pic { width: 81px; height: 81px;}
-            .name { font-size: 1.3em; margin-bottom: 8px;}
-            .bio { font-size: 0.97em;}
+            .main-wrapper { padding: 0 0; }
+            .sidebar, .content { padding: 16px 1vw; }
+            .profile-pic { width: 76px; height: 76px;}
+            .name { font-size: 1.2em; margin-bottom: 8px;}
+            .bio { font-size: 0.96em;}
         }
     </style>
     <script>
@@ -185,12 +210,7 @@
         <aside class="sidebar">
             <img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia Photo">
             <div class="name">Princessa Cintaqia</div>
-            <div class="bio">
-                Hi! I'm Princessa.<br>
-                I'm a PhD student at Boston University advised by
-                <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>.<br>
-                I'm interested in digital intimacy and technology-facilitated sexual abuse.
-            </div>
+            <div class="bio">Hi! I'm Princessa Cintaqia</div>
             <div class="email-block">📧 cintaqia@bu.edu</div>
             <div class="social-links">
                 <a class="social-link" href="mailto:cintaqia@bu.edu" title="Email"><span>✉️</span></a>
@@ -207,22 +227,38 @@
                 <ul>
                     <li>
                         <span class="paper-title">Stop the Nonconsensual Use of Nude Images in Research</span><br>
-                        Princessa Cintaqia, Arshia Arya, Elissa M Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin.<br>
+                        <span class="myname">Princessa Cintaqia</span>, Arshia Arya, Elissa M Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin.<br>
                         <span class="conference">NeurIPS (Oral), 2025</span>
                     </li>
                     <li>
                         <span class="paper-title">Global Patterns of Viral Content on WhatsApp</span><br>
-                        Kiran Garimella, Princessa Cintaqia, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha<br>
+                        Kiran Garimella, <span class="myname">Princessa Cintaqia</span>, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha<br>
                         <span class="conference">ICWSM, 2025</span>
                     </li>
                 </ul>
             </section>
             <section id="talks" class="tab-content">
-                <ul>
-                    <li>Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)</li>
-                    <li>Invited Talk at UW-Madison's Security and Privacy Seminar (Nov 17, 2025)</li>
-                    <li>Invited Talk at the Co-Constructing the Future of Digital Intimacy Workshop at CSCW (Oct 18, 2025)</li>
-                    <li>Invited Talk at the UpperBound Conference, Canada (May 20, 2025)</li>
+                <ul class="talk-list">
+                    <li>
+                        <a class="talk-link" href="https://neurips.cc/virtual/2025/loc/san-diego/oral/126306" target="_blank">
+                            Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)
+                        </a>
+                    </li>
+                    <li>
+                        <a class="talk-link" href="https://madsp.cs.wisc.edu/sp-seminar/" target="_blank">
+                            Invited Talk at UW-Madison's Security and Privacy Seminar (Nov 17, 2025)
+                        </a>
+                    </li>
+                    <li>
+                        <a class="talk-link" href="https://futureofdigitalintimacy.github.io" target="_blank">
+                            Invited Talk at the Co-Constructing the Future of Digital Intimacy Workshop at CSCW (Oct 18, 2025)
+                        </a>
+                    </li>
+                    <li>
+                        <a class="talk-link" href="https://www.upperbound.ai/2025-schedule" target="_blank">
+                            Invited Talk at the UpperBound Conference, Canada (May 20, 2025)
+                        </a>
+                    </li>
                 </ul>
             </section>
         </main>
