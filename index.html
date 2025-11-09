@@ -11,14 +11,14 @@
             background: linear-gradient(120deg,#e8f0fe 0%, #fff6fb 100%);
         }
         .main-wrapper {
-            width: 94vw;
-            max-width: 1200px;
+            width: 97vw;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             min-height: 100vh;
         }
         .sidebar {
-            flex: 0 0 300px;
+            flex: 0 0 350px;
             padding: 70px 28px;
             background: none;
             display: flex;
@@ -27,72 +27,27 @@
             justify-content: flex-start;
         }
         .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 2.5px solid #5a85e8;
+            width: 350px;
+            height: auto;
+            border: 4px solid #5a85e8;
             margin-bottom: 22px;
+            /* Remove border-radius for square/rectangular image */
             box-shadow: 0 1px 10px #eee;
             object-fit: cover;
         }
         .name {
-            font-size: 2.1em;
+            font-size: 2.15em;
             color: #4167bc;
             font-weight: 700;
             text-align: center;
             margin-bottom: 16px;
-        }
-        .bio {
-            font-size: 1.25em;
-            color: #b0345b;
-            font-weight: 600;
-            margin-bottom: 13px;
-            display: inline-block;
-            padding: 8px 12px;
-            line-height: 1.47;
-            text-align: center;
-        }
-        .email-block {
-            color: #4167bc;
-            font-weight: 500;
-            margin-bottom: 22px;
-            background: #f7e8f3;
-            border-radius: 9px;
-            padding: 6px 8px;
-            text-align: center;
-        }
-        .social-links {
-            display: flex;
-            gap: 13px;
-            justify-content: center;
-            margin-top: 13px;
-        }
-        .social-link {
-            text-decoration: none;
-            color: #5a85e8;
-            background: #f3f6fd;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.35em;
-            transition: background 0.18s;
-        }
-        .social-link:hover {
-            background: #e9e1fc;
-            color: #b0345b;
-        }
-        .content {
-            flex: 1;
-            padding: 85px 50px 60px 50px;
         }
         .tabs {
             display: flex;
             gap: 40px;
             border-bottom: 2px solid #f1f2f9;
             margin-bottom: 25px;
+            margin-top: 40px;
         }
         .tab-link {
             background: none;
@@ -104,7 +59,7 @@
             padding: 12px 1px;
             margin-right: 8px;
             border-radius: 2px;
-            transition: color 0.14s;
+            transition: color 0.12s;
         }
         .tab-link.active {
             color: #b0345b;
@@ -112,9 +67,13 @@
             font-weight: bold;
             background: #fafaff;
         }
+        .content {
+            flex: 1;
+            padding: 85px 50px 60px 50px;
+        }
         .tab-content {
             display: none;
-            margin-top: 20px;
+            margin-top: 24px;
         }
         .tab-content.active {
             display: block;
@@ -125,8 +84,8 @@
         li {
             margin-bottom: 16px;
             padding-bottom: 8px;
-            font-size: 1.09em;
-            line-height: 1.55;
+            font-size: 1.07em;
+            line-height: 1.6;
             color: #2b3148;
         }
         .paper-title {
@@ -149,13 +108,14 @@
             position: relative;
             padding-left: 32px;
             margin-bottom: 18px;
+            font-size: 1.06em;
         }
         .talk-list li:before {
             content: "🌸";
             position: absolute;
             left: 0;
             top: 2px;
-            font-size: 1.13em;
+            font-size: 1.11em;
         }
         .talk-link {
             color: #4167bc;
@@ -166,29 +126,51 @@
         .talk-link:hover {
             color: #b0345b;
         }
+        .bio-block {
+            font-size: 1.21em;
+            color: #b0345b;
+            margin-bottom: 15px;
+            background: #e8f0fe;
+            border-radius: 10px;
+            padding: 18px 18px 14px 18px;
+            font-weight: 500;
+            line-height: 1.6;
+            max-width: 650px;
+        }
+        .email-block {
+            color: #4167bc;
+            font-weight: 500;
+            margin-bottom: 22px;
+            background: #f7e8f3;
+            border-radius: 9px;
+            padding: 6px 8px;
+            text-align: left;
+            display: inline-block;
+            font-size: 1.08em;
+        }
         @media (max-width:900px) {
             .main-wrapper {
                 flex-direction: column;
             }
             .sidebar, .content {
-                padding: 28px 8vw;
+                padding: 28px 3vw;
             }
             .sidebar {
                 flex: none;
                 border-bottom: 1.5px solid #eee;
             }
             .content {
-                padding: 24px 6vw;
+                padding: 24px 4vw;
             }
-            .tabs { gap: 14px; }
-            .profile-pic { width: 110px; height: 110px;}
+            .tabs { gap: 12px; }
+            .profile-pic { width: 190px; }
         }
         @media (max-width:500px) {
             .main-wrapper { padding: 0 0; }
             .sidebar, .content { padding: 16px 1vw; }
-            .profile-pic { width: 76px; height: 76px;}
-            .name { font-size: 1.2em; margin-bottom: 8px;}
-            .bio { font-size: 0.96em;}
+            .profile-pic { width: 86px; }
+            .name { font-size: 1.05em; margin-bottom: 6px;}
+            .bio-block { font-size: 1em; padding: 10px 6px;}
         }
     </style>
     <script>
@@ -201,7 +183,7 @@
             document.getElementById(tabName+'-link').classList.add('active');
         }
         window.onload = function() {
-            showTab('publications');
+            showTab('home');
         };
     </script>
 </head>
@@ -210,20 +192,27 @@
         <aside class="sidebar">
             <img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia Photo">
             <div class="name">Princessa Cintaqia</div>
-            <div class="bio">Hi! I'm Princessa Cintaqia</div>
-            <div class="email-block">📧 cintaqia@bu.edu</div>
-            <div class="social-links">
-                <a class="social-link" href="mailto:cintaqia@bu.edu" title="Email"><span>✉️</span></a>
-                <a class="social-link" href="https://github.com/your-github-username" target="_blank" title="GitHub"><span>🐙</span></a>
-                <a class="social-link" href="https://linkedin.com/in/your-linkedin-url" target="_blank" title="LinkedIn"><span>💼</span></a>
-            </div>
         </aside>
         <main class="content">
             <nav class="tabs">
-                <button id="publications-link" class="tab-link active" onclick="showTab('publications')">Publications</button>
+                <button id="home-link" class="tab-link active" onclick="showTab('home')">Home</button>
+                <button id="publications-link" class="tab-link" onclick="showTab('publications')">Publications</button>
                 <button id="talks-link" class="tab-link" onclick="showTab('talks')">Talks</button>
             </nav>
-            <section id="publications" class="tab-content active">
+
+            <section id="home" class="tab-content active">
+                <div class="bio-block">
+                    Hi! I'm Princessa Cintaqia. <br>
+                    I'm a PhD student at Boston University advised by
+                    <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>.<br>
+                    I'm interested in digital intimacy and technology-facilitated sexual abuse.
+                </div>
+                <div class="email-block">
+                    📧 cintaqia@bu.edu
+                </div>
+            </section>
+
+            <section id="publications" class="tab-content">
                 <ul>
                     <li>
                         <span class="paper-title">Stop the Nonconsensual Use of Nude Images in Research</span><br>
@@ -237,6 +226,7 @@
                     </li>
                 </ul>
             </section>
+
             <section id="talks" class="tab-content">
                 <ul class="talk-list">
                     <li>
