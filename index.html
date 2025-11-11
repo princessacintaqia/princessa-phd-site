@@ -62,15 +62,12 @@
     padding:6px 0;
     position:relative;
   }
-  .nav a.active {
-    color: var(--accent);
-  }
   .nav a.active::after {
     content:'';
     position:absolute;
     left:0; right:0; bottom:-2px;
     height:3px;
-    background:var(--accent);
+    background:var(--primary);
   }
   /* MAIN CONTENT */
   main {
@@ -166,7 +163,13 @@
       border-bottom:1px solid #eee;
       padding:24px 16px;
     }
-    .nav { flex-direction:row; justify-content:center; flex-wrap:wrap; gap:8px 16px; margin-top:16px; }
+    .nav { 
+      flex-direction:row; 
+      justify-content:center; 
+      flex-wrap:wrap; 
+      gap:8px 16px; 
+      margin-top:16px; 
+    }
     .nav a { font-size:1.05em; padding:8px; }
     main { padding:24px 16px; }
   }
@@ -186,19 +189,16 @@
     <img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia">
     <div class="name">Princessa Cintaqia</div>
     <nav class="nav">
-      <a href="#home"       id="home-link"       class="active">Home</a>
+      <a href="#home"         id="home-link"         class="active">Home</a>
       <a href="#publications" id="publications-link">Publications</a>
-      <a href="#talks"      id="talks-link">Talks</a>
+      <a href="#talks"        id="talks-link">Talks</a>
     </nav>
   </aside>
 
   <main>
     <section id="home">
       <div class="bio">
-        Hi! I'm Princessa Cintaqia.<br>
-        I'm a PhD student at Boston University advised by
-        <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>.<br>
-        I'm interested in digital intimacy and technology-facilitated sexual abuse.
+        I'm interested in broadly usable security and privacy, digital intimacy, and human-computer interaction (HCI).
       </div>
       <div class="email">📧 cintaqia@bu.edu</div>
     </section>
@@ -259,15 +259,15 @@
 </div>
 
 <script>
-  // activate menu link on scroll
+  // Scrollspy for active link highlight
   const links = document.querySelectorAll('.nav a');
   const sections = Array.from(links).map(a=>document.querySelector(a.getAttribute('href')));
   window.addEventListener('scroll', ()=>{
     let idx = sections.findIndex(sec=>{
-      const rect = sec.getBoundingClientRect();
-      return rect.top <= 100 && rect.bottom > 100;
+      const r = sec.getBoundingClientRect();
+      return r.top <= 80 && r.bottom > 80;
     });
-    if(idx<0) idx=0;
+    if(idx<0) idx = 0;
     links.forEach((a,i)=> a.classList.toggle('active', i===idx));
   });
 </script>
