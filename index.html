@@ -1,293 +1,276 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<title>Princessa Cintaqia | PhD Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  :root {
+    --primary: #4167bc;
+    --accent:  #b0345b;
+    --light-bg: #e8f0fe;
+    --pale-bg:  #fff6fb;
+    --text:    #24292e;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    color: var(--text);
+    background: linear-gradient(120deg, var(--light-bg) 0, var(--pale-bg) 100%);
+  }
+  .container {
+    display:flex;
+    max-width:1100px;
+    margin:0 auto;
+    min-height:100vh;
+  }
+  /* SIDEBAR */
+  .sidebar {
+    position:sticky;
+    top:0;
+    flex:0 0 260px;
+    padding:40px 20px;
+    background:transparent;
+    text-align:center;
+    border-right:1px solid #eee;
+  }
+  .profile-pic {
+    width:180px;
+    height:auto;
+    border:3px solid var(--primary);
+    margin-bottom:16px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.1);
+    object-fit:cover;
+  }
+  .name {
+    font-size:1.8em;
+    color: var(--primary);
+    font-weight:700;
+    margin-bottom:24px;
+  }
+  .nav {
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .nav a {
+    text-decoration:none;
+    color: var(--primary);
+    font-weight:600;
+    font-size:1.05em;
+    padding:6px 0;
+    position:relative;
+  }
+  .nav a.active {
+    color: var(--accent);
+  }
+  .nav a.active::after {
+    content:'';
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:3px;
+    background:var(--accent);
+  }
+  /* MAIN CONTENT */
+  main {
+    flex:1;
+    padding:40px 30px;
+  }
+  section {
+    margin-bottom:60px;
+  }
+  h2 {
+    font-size:1.6em;
+    color: var(--primary);
+    margin-bottom:12px;
+  }
+  /* HOME */
+  .bio {
+    background: var(--light-bg);
+    padding:16px;
+    border-radius:8px;
+    color: var(--accent);
+    font-size:1.1em;
+    line-height:1.6;
+    margin-bottom:16px;
+  }
+  .email {
+    display:inline-block;
+    background:#f7e8f3;
+    padding:8px 12px;
+    border-radius:6px;
+    color: var(--primary);
+    font-weight:500;
+  }
+  /* PUBLICATIONS */
+  .pub-list {
+    list-style:none;
+    padding:0;
+  }
+  .pub-list li {
+    margin-bottom:20px;
+    line-height:1.5;
+  }
+  .paper-title {
+    font-weight:bold;
+    color: var(--primary);
+  }
+  .paper-title a {
+    text-decoration:underline;
+    color: var(--primary);
+  }
+  .authors {
+    margin:6px 0;
+    font-size:0.98em;
+  }
+  .myname {
+    text-decoration:underline var(--primary) 2px;
+    font-weight:bold;
+    color: var(--accent);
+  }
+  .venue {
+    color: var(--accent);
+    font-size:0.94em;
+  }
+  /* TALKS */
+  .talk-list {
+    list-style:none;
+    padding:0;
+  }
+  .talk-list li {
+    position:relative;
+    padding-left:28px;
+    margin-bottom:18px;
+    font-size:1em;
+    line-height:1.5;
+  }
+  .talk-list li:before {
+    content:'🌸';
+    position:absolute;
+    left:0; top:2px;
+  }
+  .talk-link {
+    text-decoration:underline;
+    color: var(--primary);
+  }
+  .talk-link:hover {
+    color: var(--accent);
+  }
+  /* RESPONSIVE */
+  @media(max-width:800px) {
+    .container { flex-direction:column; }
+    .sidebar {
+      position:relative;
+      border-right:none;
+      border-bottom:1px solid #eee;
+      padding:24px 16px;
+    }
+    .nav { flex-direction:row; justify-content:center; flex-wrap:wrap; gap:8px 16px; margin-top:16px; }
+    .nav a { font-size:1.05em; padding:8px; }
+    main { padding:24px 16px; }
+  }
+  @media(max-width:450px) {
+    .profile-pic { width:80vw; max-width:180px; }
+    .name { font-size:1.5em; }
+    h2 { font-size:1.4em; }
+    .bio { font-size:1em; padding:12px; }
+    .email { font-size:0.95em; padding:6px 10px; }
+  }
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Princessa Cintaqia | PhD Website&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--primary: #4167bc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--accent:<span class="Apple-converted-space">  </span>#b0345b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--light-bg: #e8f0fe;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--pale-bg:<span class="Apple-converted-space">  </span>#fff6fb;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--text:<span class="Apple-converted-space">    </span>#24292e;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>html { scroll-behavior: smooth; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-family:'Segoe UI',sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--text);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: linear-gradient(120deg, var(--light-bg) 0, var(--pale-bg) 100%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width:1100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>min-height:100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* SIDEBAR */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.sidebar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:sticky;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>top:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>flex:0 0 260px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:40px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:transparent;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-align:center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-right:1px solid #eee;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.profile-pic {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width:180px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height:auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border:3px solid var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow:0 2px 12px rgba(0,0,0,0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>object-fit:cover;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.name {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:1.8em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.nav {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>flex-direction:column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gap:16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.nav a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-decoration:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:1.05em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:6px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.nav a.active {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--accent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.nav a.active::after {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>content:'';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>left:0; right:0; bottom:-2px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height:3px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:var(--accent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* MAIN CONTENT */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>main {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>flex:1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:40px 30px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>section {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:60px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:1.6em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* HOME */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.bio {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: var(--light-bg);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius:8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--accent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:1.1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>line-height:1.6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.email {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:inline-block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:#f7e8f3;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:8px 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius:6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* PUBLICATIONS */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.pub-list {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>list-style:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.pub-list li {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>line-height:1.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.paper-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.paper-title a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-decoration:underline;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.authors {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:6px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:0.98em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.myname {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-decoration:underline var(--primary) 2px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--accent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.venue {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--accent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:0.94em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* TALKS */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.talk-list {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>list-style:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.talk-list li {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding-left:28px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom:18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size:1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>line-height:1.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.talk-list li:before {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>content:'🌸';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position:absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>left:0; top:2px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.talk-link {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-decoration:underline;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--primary);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.talk-link:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: var(--accent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* RESPONSIVE */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@media(max-width:800px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container { flex-direction:column; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.sidebar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position:relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-right:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-bottom:1px solid #eee;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding:24px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.nav { flex-direction:row; justify-content:center; flex-wrap:wrap; gap:8px 16px; margin-top:16px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.nav a { font-size:1.05em; padding:8px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>main { padding:24px 16px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@media(max-width:450px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.profile-pic { width:80vw; max-width:180px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.name { font-size:1.5em; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h2 { font-size:1.4em; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.bio { font-size:1em; padding:12px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.email { font-size:0.95em; padding:6px 10px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;aside class="sidebar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="name"&gt;Princessa Cintaqia&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav class="nav"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#home" <span class="Apple-converted-space">      </span>id="home-link" <span class="Apple-converted-space">      </span>class="active"&gt;Home&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#publications" id="publications-link"&gt;Publications&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="#talks"<span class="Apple-converted-space">      </span>id="talks-link"&gt;Talks&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/aside&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;main&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;section id="home"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="bio"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Hi! I'm Princessa Cintaqia.&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>I'm a PhD student at Boston University advised by</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://amcdon.com" target="_blank"&gt;Dr. Allison McDonald&lt;/a&gt;.&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>I'm interested in digital intimacy and technology-facilitated sexual abuse.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="email"&gt;📧 cintaqia@bu.edu&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;section id="publications"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Publications&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul class="pub-list"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="paper-title"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Stop the Nonconsensual Use of Nude Images in Research</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="venue"&gt;NeurIPS (Oral), 2025&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="authors"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span class="myname"&gt;Princessa Cintaqia&lt;/span&gt;, Arshia Arya, Elissa M Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="paper-title"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=VChZp-oAAAAJ&amp;citation_for_view=VChZp-oAAAAJ:IjCSPb-OGe4C"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">               </span>target="_blank"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>Global Patterns of Viral Content on WhatsApp</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="venue"&gt;ICWSM, 2025&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="authors"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Kiran Garimella, &lt;span class="myname"&gt;Princessa Cintaqia&lt;/span&gt;, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;section id="talks"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Talks&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul class="talk-list"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;a class="talk-link" href="https://neurips.cc/virtual/2025/loc/san-diego/oral/126306" target="_blank"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;a class="talk-link" href="https://madsp.cs.wisc.edu/sp-seminar/" target="_blank"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Invited Talk at UW-Madison’s Security &amp; Privacy Seminar (Nov 17, 2025)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;a class="talk-link" href="https://futureofdigitalintimacy.github.io" target="_blank"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Invited Talk at Co-Constructing the Future of Digital Intimacy Workshop, CSCW (Oct 18, 2025)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;a class="talk-link" href="https://www.upperbound.ai/2025-schedule" target="_blank"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>Invited Talk at UpperBound Conference, Canada (May 20, 2025)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// activate menu link on scroll</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const links = document.querySelectorAll('.nav a');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const sections = Array.from(links).map(a=&gt;document.querySelector(a.getAttribute('href')));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>window.addEventListener('scroll', ()=&gt;{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let idx = sections.findIndex(sec=&gt;{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const rect = sec.getBoundingClientRect();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>return rect.top &lt;= 100 &amp;&amp; rect.bottom &gt; 100;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(idx&lt;0) idx=0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>links.forEach((a,i)=&gt; a.classList.toggle('active', i===idx));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<div class="container">
+  <aside class="sidebar">
+    <img class="profile-pic" src="profile.JPG" alt="Princessa Cintaqia">
+    <div class="name">Princessa Cintaqia</div>
+    <nav class="nav">
+      <a href="#home"       id="home-link"       class="active">Home</a>
+      <a href="#publications" id="publications-link">Publications</a>
+      <a href="#talks"      id="talks-link">Talks</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section id="home">
+      <div class="bio">
+        Hi! I'm Princessa Cintaqia.<br>
+        I'm a PhD student at Boston University advised by
+        <a href="https://amcdon.com" target="_blank">Dr. Allison McDonald</a>.<br>
+        I'm interested in digital intimacy and technology-facilitated sexual abuse.
+      </div>
+      <div class="email">📧 cintaqia@bu.edu</div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="pub-list">
+        <li>
+          <div class="paper-title">
+            Stop the Nonconsensual Use of Nude Images in Research
+          </div>
+          <div class="venue">NeurIPS (Oral), 2025</div>
+          <div class="authors">
+            <span class="myname">Princessa Cintaqia</span>, Arshia Arya, Elissa M Redmiles, Deepak Kumar, Allison McDonald, Lucy Qin
+          </div>
+        </li>
+        <li>
+          <div class="paper-title">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VChZp-oAAAAJ&citation_for_view=VChZp-oAAAAJ:IjCSPb-OGe4C"
+               target="_blank">
+              Global Patterns of Viral Content on WhatsApp
+            </a>
+          </div>
+          <div class="venue">ICWSM, 2025</div>
+          <div class="authors">
+            Kiran Garimella, <span class="myname">Princessa Cintaqia</span>, Juan José Rojas-Constain, Bharat Kumar Nayak, Aditya Vashistha
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="talks">
+      <h2>Talks</h2>
+      <ul class="talk-list">
+        <li>
+          <a class="talk-link" href="https://neurips.cc/virtual/2025/loc/san-diego/oral/126306" target="_blank">
+            Oral Panel Talk at NeurIPS 2025 (Dec 4, 2025)
+          </a>
+        </li>
+        <li>
+          <a class="talk-link" href="https://madsp.cs.wisc.edu/sp-seminar/" target="_blank">
+            Invited Talk at UW-Madison’s Security & Privacy Seminar (Nov 17, 2025)
+          </a>
+        </li>
+        <li>
+          <a class="talk-link" href="https://futureofdigitalintimacy.github.io" target="_blank">
+            Invited Talk at Co-Constructing the Future of Digital Intimacy Workshop, CSCW (Oct 18, 2025)
+          </a>
+        </li>
+        <li>
+          <a class="talk-link" href="https://www.upperbound.ai/2025-schedule" target="_blank">
+            Invited Talk at UpperBound Conference, Canada (May 20, 2025)
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<script>
+  // activate menu link on scroll
+  const links = document.querySelectorAll('.nav a');
+  const sections = Array.from(links).map(a=>document.querySelector(a.getAttribute('href')));
+  window.addEventListener('scroll', ()=>{
+    let idx = sections.findIndex(sec=>{
+      const rect = sec.getBoundingClientRect();
+      return rect.top <= 100 && rect.bottom > 100;
+    });
+    if(idx<0) idx=0;
+    links.forEach((a,i)=> a.classList.toggle('active', i===idx));
+  });
+</script>
+
 </body>
 </html>
